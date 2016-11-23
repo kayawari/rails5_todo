@@ -16,7 +16,7 @@
   <tbody>
     <% @todos.each do |todo| %>
       <tr>
-        <td><%= todo.checked_flg %></td>
+        <td><%= check_box 'checked_flg', '', {:checked => todo.checked_flg}, true, false %></td>
         <td><%= todo.title %></td>
         <td><%= todo.memo %></td>
         <td><%= link_to 'Show', todo %></td>
