@@ -60,6 +60,15 @@ class TodosController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  def check
+    @todo = Todo.find(params[:id])
+    
+    if @todo.update_attributes(:checked_flg => params[:checked_flg])
+    else
+      puts 'error';
+    end
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
