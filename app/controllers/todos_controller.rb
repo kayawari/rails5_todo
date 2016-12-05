@@ -25,7 +25,10 @@ class TodosController < ApplicationController
   # POST /todos.json
   def create
     @todo = Todo.new(todo_params)
-
+    
+    # デフォルトでtodoはチェックが入っていない状態にする
+    @todo.checked_flg = false
+    
     respond_to do |format|
       if @todo.save
         format.html { redirect_to @todo, notice: 'Todo was successfully created.' }
