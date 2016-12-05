@@ -21,7 +21,6 @@
         <td><%= todo.title %></td>
         <td><%= todo.memo %></td>
         <td><%= link_to 'Edit', edit_todo_path(todo) %></td>
-        <td><%= link_to 'Destroy', todo, method: :delete %></td>
       </tr>
     <% end %>
   </tbody>
@@ -29,4 +28,5 @@
 
 <br>
 
-<%= link_to 'New Todo', new_todo_path %>
+<%= link_to 'New Todo', new_todo_path, :class => 'button' %>
+

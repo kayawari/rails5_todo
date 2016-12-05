@@ -2,5 +2,6 @@
 
 <%= render 'form', todo: @todo %>
 
-<%= link_to 'Show', @todo %> |
-<%= link_to 'Back', todos_path %>
+<%= link_to 'Show', @todo, {:class => 'button'} %> |
+<%= link_to 'Destroy', @todo, method: :delete, :class => 'button alert' %> |
+<%= link_to 'Back', todos_path, {:class => 'button info'} %>
