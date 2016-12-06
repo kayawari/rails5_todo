@@ -5,3 +5,9 @@ class TodoTest < ActiveSupport::TestCase
   #   assert true
   # end
 end
+
+class TodoCountTest < ActiveSupport::TestCase
+  test "todo_count" do
+    assert_equal 4, Todo.count
+  end
+end

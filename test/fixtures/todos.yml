@@ -9,3 +9,13 @@ two:
   checked_flg: false
   title: MyString
   memo: MyText
+
+three:
+  checked_flg: MyString
+  title: MyString
+  memo: MyText
+
+four:
+  checked_flg: MyString
+  title: 100
+  memo: MyText
