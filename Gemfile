@@ -14,6 +14,7 @@ gem 'foundation-rails'
 group :development, :test do
   gem 'sqlite3'
   gem 'byebug', platform: :mri
+  gem 'hirb'
   gem 'pry-rails'
   gem 'pry-doc'
   gem 'pry-byebug'
