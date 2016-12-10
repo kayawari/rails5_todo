@@ -1,17 +1,19 @@
-// Place all the styles related to the Todos controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-
 .todo-lists {
   margin: 1px;
   
   .todo-list {
-    padding-bottom: 20px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    
+    .todo-check {
+      margin-top: 8px;
+    }
 
     .todo-title {
       padding-bottom: 5px;
       font-size: 20px;
       font-weight: bold;
+      line-height: 1.4em;
     }
   }
 }
