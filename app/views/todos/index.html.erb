@@ -1,30 +1,20 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Todos</h1>
-<p class = "todos-count">全タスク：<%= @todos.count %></p>
-<p class = "todos-un-finish-count">未完了タスク：<%= @todos.where(checked_flg:false).count %></p>
-<p class = "todos-finish-count">完了タスク：<%= @todos.where(checked_flg:true).count %></p>
-<table>
-  <thead>
-    <tr>
-      <th>+</th>
-      <th>Title</th>
-      <th>Memo</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<h3>全タスク：<%= @todos.count %></h3>
 
-  <tbody>
-    <% @todos.each do |todo| %>
-      <tr>
-        <td><%= check_box_tag 'checked_flg', todo.id, todo.checked_flg, {:checked_flg => todo.checked_flg} %></td>
-        <td><%= todo.title %></td>
-        <td><%= todo.memo %></td>
-        <td><%= link_to 'Edit', edit_todo_path(todo) %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<ul class="no-bullet todo-lists">
+  <% @todos.each do |todo| %>
+    <li class="row todo-list">
+      <%= check_box_tag 'checked_flg', todo.id, todo.checked_flg, {:checked_flg => todo.checked_flg, :class => 'small-1 large-2 columns'} %>
+      <span class="small-10 large-8 columns">
+        <%= link_to todo.title, edit_todo_path(todo), {:class => 'text-left todo-title'} %><br>
+        <span><%= todo.memo %></span>
+      </span>
+      <%= link_to '削除', todo, {method: :delete, :class => 'small-1 large-2 columns'} %>
+    </li>
+  <% end %>
+</ul>
 
 <br>
 
