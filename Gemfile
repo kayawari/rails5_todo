@@ -13,6 +13,7 @@ gem 'foundation-rails'
 
 group :development, :test do
   gem 'sqlite3'
+  gem 'rspec-rails', '~> 3.5'
   gem 'byebug', platform: :mri
   gem 'hirb'
   gem 'pry-rails'
