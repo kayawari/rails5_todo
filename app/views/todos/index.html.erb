@@ -8,7 +8,8 @@
       <%= check_box_tag 'checked_flg', todo.id, todo.checked_flg, {:checked_flg => todo.checked_flg, :class => 'small-1 large-2 columns todo-check'} %>
       <span class="small-10 large-8 columns">
         <%= link_to todo.title, edit_todo_path(todo), {:class => 'text-left todo-title'} %><br>
-        <span><%= todo.memo %></span>
+        <span><%= todo.memo %></span><br>
+        <span><%= todo.duedate %></span>
       </span>
       <%= link_to '削除', todo, {method: :delete, :class => 'small-1 large-2 columns'} %>
     </li>
@@ -24,7 +25,8 @@
       <%= check_box_tag 'checked_flg', todo.id, todo.checked_flg, {:checked_flg => todo.checked_flg, :class => 'small-1 large-2 columns'} %>
       <span class="small-10 large-8 columns">
         <%= link_to todo.title, edit_todo_path(todo), {:class => 'text-left todo-title'} %><br>
-        <span><%= todo.memo %></span>
+        <span><%= todo.memo %></span><br>
+        <span><%= todo.duedate %></span>
       </span>
       <%= link_to '削除', todo, {method: :delete, :class => 'small-1 large-2 columns'} %>
     </li>
