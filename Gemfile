@@ -14,11 +14,13 @@ gem 'foundation-rails'
 group :development, :test do
   gem 'sqlite3'
   gem 'rspec-rails', '~> 3.5'
+  gem 'factory_girl_rails'
   gem 'byebug', platform: :mri
   gem 'hirb'
   gem 'pry-rails'
   gem 'pry-doc'
   gem 'pry-byebug'
+  gem 'pry-stack_explorer'
 end
 
 group :development do
