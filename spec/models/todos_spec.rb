@@ -11,4 +11,12 @@ describe Todo do
       expect(todo).to be_valid
     end
   end
+
+  describe 'error model spec' do
+    it "is invalid without title" do
+      todo = Todo.new(checked_flg: false, title: nil)
+      todo.valid?
+      expect(todo.errors[:title]).to include("can't be blank")
+    end
+  end
 end
