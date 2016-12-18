@@ -10,6 +10,7 @@ describe Todo do
         duedate: 1991-10-20)
       expect(todo).to be_valid
     end
+
     it "is invalid without title" do
       todo = Todo.new(checked_flg: false, title: nil)
       todo.valid?
