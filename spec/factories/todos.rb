@@ -3,6 +3,6 @@ FactoryGirl.define do
     checked_flg false
     title "サンプルタイトル"
     memo "サンプルメモ"
-    duedate 2011-10-10
+    duedate "2011-10-10"
    end
 end
