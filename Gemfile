@@ -21,6 +21,8 @@ group :development, :test do
   gem 'pry-doc'
   gem 'pry-byebug'
   gem 'pry-stack_explorer'
+  gem 'rails-controller-testing'
+  gem 'rspec-collection_matchers'
 end
 
 group :development do

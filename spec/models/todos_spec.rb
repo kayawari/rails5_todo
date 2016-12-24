@@ -2,8 +2,10 @@ require 'rails_helper'
 
 describe Todo do
   describe 'Model' do
+
     it "is valid with a checked_flg, title, memo, duedate" do
-      todo = FactoryGirl.build(:todo)
+      # duedateを今日の日付に変更
+      todo = FactoryGirl.build(:todo, duedate:Date.today)
       expect(todo).to be_valid
     end
 
@@ -15,7 +17,15 @@ describe Todo do
     
     it "is valid with blank memo" do
       todo = FactoryGirl.build(:todo, memo: nil)
+      # duedateを今日の日付に変更
+      todo = FactoryGirl.build(:todo, duedate:Date.today)
       expect(todo).to be_valid
     end
+
+    it "is invalid with duedate in the past" do
+      todo = FactoryGirl.build(:todo)
+      expect(todo).to have(1).errors_on(:duedate)
+    end
+
   end
 end
