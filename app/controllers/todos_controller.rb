@@ -63,7 +63,8 @@ class TodosController < ApplicationController
       format.json { head :no_content }
     end
   end
-  
+ 
+  # Todoの完了/未完了を切り替える
   def check
     @todo = Todo.find(params[:id])
     
