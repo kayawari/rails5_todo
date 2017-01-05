@@ -23,6 +23,7 @@ group :development, :test do
   gem 'pry-stack_explorer'
   gem 'rails-controller-testing'
   gem 'rspec-collection_matchers'
+	gem 'rubocop', require: false
 end
 
 group :development do
