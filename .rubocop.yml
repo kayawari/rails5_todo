@@ -1,0 +1,11 @@
+AllCops:
+  Exclude:
+    - 'bin/**/**'
+    - 'config/**/**'
+    - 'db/**/**'
+    - 'spec/**/**'
+    - 'test/**/*'
+    - 'test/*'
+    - 'temp/**/**'
+    - 'vendor/**/**'
+  TargetRubyVersion: 2.3
