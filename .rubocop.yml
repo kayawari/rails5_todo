@@ -1,5 +1,6 @@
 AllCops:
   Exclude:
+    - '**/Gemfile'
     - 'bin/**/**'
     - 'config/**/**'
     - 'db/**/**'
@@ -9,3 +10,12 @@ AllCops:
     - 'temp/**/**'
     - 'vendor/**/**'
   TargetRubyVersion: 2.3
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Style/AsciiComments:
+  Enabled: false
