@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  before_save { self.email = email.downcase }
   validates :name, presence: true
 
   # TODO: 正直、ここの正規表現がわかっていない...
