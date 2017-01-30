@@ -24,9 +24,19 @@ describe User do
     expect(user).to have(1).errors_on(:email)
   end
 
+  it "is invalid with 7 letter password" do
+    user = FactoryGirl.build(:user, password:"a"*7)
+    expect(user).to have(1).errors_on(:password)
+  end
+
+  it "is valid with 8 letter password" do
+    user = FactoryGirl.build(:user, password:"a"*8)
+    expect(user).to be_valid
+  end
+
   context "is black" do
     before do
-      @user = FactoryGirl.build(:user, name:nil, email:nil)
+      @user = FactoryGirl.build(:user, name:nil, email:nil, password:nil)
     end
 
     it "name is invalid" do
@@ -35,6 +45,10 @@ describe User do
 
     it "email is invalid" do
       expect(@user).to have(2).errors_on(:email)
+    end
+
+    it "password is invalid" do
+      expect(@user).to have(3).errors_on(:password)
     end
   end
 end
