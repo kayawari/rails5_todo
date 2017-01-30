@@ -12,6 +12,13 @@ describe User do
     expect(user).to have(1).errors_on(:email)
   end
 
+  it "is valid with a upcase duplicate email" do
+    FactoryGirl.create(:user)
+    upcase_email = "sample@gmail.com".upcase
+    user = FactoryGirl.build(:user, email:upcase_email)
+    expect(user).to be_valid
+  end
+
   it "is invalid with illegal email" do
     user = FactoryGirl.build(:user, email:'hogehoge')
     expect(user).to have(1).errors_on(:email)
