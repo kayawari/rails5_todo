@@ -18,10 +18,8 @@ group :development, :test do
   gem 'byebug', platform: :mri
   gem 'factory_girl_rails'
   gem 'hirb'
-  gem 'pry-byebug'
-  gem 'pry-doc'
   gem 'pry-rails'
-  gem 'pry-stack_explorer'
+  gem 'pry-byebug'
   gem 'rails-controller-testing'
   gem 'rspec-collection_matchers'
   gem 'rubocop', require: false

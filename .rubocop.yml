@@ -1,4 +1,5 @@
 AllCops:
+  TargetRubyVersion: 2.3
   Exclude:
     - '**/Gemfile'
     - 'bin/**/**'
@@ -9,7 +10,13 @@ AllCops:
     - 'test/*'
     - 'temp/**/**'
     - 'vendor/**/**'
-  TargetRubyVersion: 2.3
+
+LineLength:
+  Max: 100
+
+MethodLength:
+  CountComments: false
+  Max: 30
 
 Style/FrozenStringLiteralComment:
   Enabled: false
@@ -18,4 +25,19 @@ Style/Documentation:
   Enabled: false
 
 Style/AsciiComments:
+  Enabled: false
+
+Style/TrailingBlankLines:
+  Enabled: false
+
+Style/AlignParameters:
+  Enabled: false
+
+Style/AlignHash:
+  Enabled: false
+
+Style/EmptyMethod:
+  Enabled: false
+
+Style/Blocks:
   Enabled: false

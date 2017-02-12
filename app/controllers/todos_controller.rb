@@ -25,10 +25,10 @@ class TodosController < ApplicationController
   # POST /todos.json
   def create
     @todo = Todo.new(todo_params)
-    
+
     # デフォルトでtodoはチェックが入っていない状態にする
     @todo.checked_flg = false
-    
+
     respond_to do |format|
       if @todo.save
         format.html { redirect_to @todo, notice: 'Todo was successfully created.' }
@@ -63,25 +63,26 @@ class TodosController < ApplicationController
       format.json { head :no_content }
     end
   end
- 
+
   # Todoの完了/未完了を切り替える
   def check
     @todo = Todo.find(params[:id])
-    
-    if @todo.update_attributes(:checked_flg => params[:checked_flg])
+
+    if @todo.update_attributes(checked_flg: params[:checked_flg])
     else
-      puts 'error';
+      puts 'error'
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_todo
-      @todo = Todo.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def todo_params
-      params.require(:todo).permit(:checked_flg, :title, :duedate)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_todo
+    @todo = Todo.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def todo_params
+    params.require(:todo).permit(:checked_flg, :title, :duedate)
+  end
 end
