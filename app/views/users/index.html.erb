@@ -5,6 +5,9 @@
 <table>
   <thead>
     <tr>
+      <% if Rails.env.development? %>
+        <th>Id</th>
+      <% end %>
       <th>Name</th>
       <th>Email</th>
       <th>Create Date</th>
@@ -14,6 +17,9 @@
   <tbody>
     <% @users.each do |user| %>
       <tr>
+        <% if Rails.env.development? %>
+          <td><%= user.id %></td>
+        <% end %>
         <td><%= user.name %></td>
         <td><%= user.email %></td>
         <td><%= user.created_at %></td>
