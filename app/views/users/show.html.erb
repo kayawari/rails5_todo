@@ -1,4 +1,12 @@
 <p id="notice"><%= notice %></p>
+<%= provide(:title, @user.name) %>
+
+<%= @user.id if Rails.env.development? %>
+
+<h1>
+  <%= gravatar_for @user %>
+  <%= @user.name %>
+</h1>
 
 <p>
   <strong>Name:</strong>
