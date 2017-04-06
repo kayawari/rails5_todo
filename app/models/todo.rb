@@ -1,5 +1,5 @@
 class Todo < ApplicationRecord
-  validates :title, presence: true
+  validates :title, presence: true, length: { in: 3..100 }
   validates :memo,  length: { maximum: 255 }
   validate :duedate_cannot_be_in_the_past
 

@@ -27,5 +27,17 @@ describe Todo do
       expect(todo).to have(1).errors_on(:duedate)
     end
 
+    it "is invalid with outside title length" do
+      invalid_title = 'a' * 101
+      todo = FactoryGirl.build(:todo, title: invalid_title)
+      expect(todo).to have(1).errors_on(:title)
+    end
+
+    it "is invalid with outside title length" do
+      invalid_title = 'a' * 2
+      todo = FactoryGirl.build(:todo, title: invalid_title)
+      expect(todo).to have(1).errors_on(:title)
+    end
+
   end
 end
