@@ -5,6 +5,11 @@ class TodosController < ApplicationController
   # GET /todos.json
   def index
     @todos = Todo.all
+
+    # TODO: ログインしているユーザーの名前をヘッダーに出力
+    # 今はまだ最初に登録したユーザーのみ名前を出力
+    @user = User.first
+    return @todos, @user
   end
 
   # GET /todos/1
