@@ -1,9 +1,15 @@
+include ApplicationHelper
+
 class TodosController < ApplicationController
   before_action :set_todo, only: [:show, :edit, :update, :destroy]
 
   # GET /todos
   # GET /todos.json
   def index
+    unless logged_in?
+      redirect_to login_path, alert: 'ログインしてください'
+    end
+
     @todos = Todo.all
 
     # TODO: ログインしているユーザーの名前をヘッダーに出力

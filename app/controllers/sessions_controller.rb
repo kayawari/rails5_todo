@@ -1,3 +1,5 @@
+include ApplicationHelper
+
 class SessionsController < ApplicationController
   def new
   end
@@ -7,7 +9,7 @@ class SessionsController < ApplicationController
 
     # メアドとパスワード認証
     if user && user.authenticate(params[:session][:password])
-      session[:user_id] = user.id
+      log_in user
       redirect_to user
     else
       flash.now[:danger] = 'invalid email or password combination'
@@ -16,6 +18,8 @@ class SessionsController < ApplicationController
   end
 
   def destroy
+    log_out
+    redirect_to login_path
   end
 
 end
