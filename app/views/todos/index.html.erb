@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></>
 <h1>Todos</h1>
-<h2><%= @user.name %>
+<h2><%= current_user.name %>
 <h3>全タスク：<%= @todos.count %></h3>
 <h3>未完了タスク：<%= @todos.where(checked_flg:false).count %></h3>
 <ul class="no-bullet todo-lists">
