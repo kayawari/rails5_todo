@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+  helper_method :current_user, :logged_in?
 
   # GET /users
   # GET /users.json
@@ -29,8 +30,11 @@ class UsersController < ApplicationController
     respond_to do |format|
       if @user.save
 
-        # 登録時にログインする
-        log_in @user
+        # 登録時に他のユーザーでログイン状態でなければ、登録ユーザーでログイン
+        unless logged_in?
+          # 登録時にログインする
+          log_in @user
+        end
 
         format.html { redirect_to @user, notice: 'User was successfully created.' }
         format.json { render :show, status: :created, location: @user }
@@ -63,6 +67,14 @@ class UsersController < ApplicationController
       format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def current_user
+    @current_user ||= User.find_by(id: session[:user_id])
+  end
+
+  def logged_in?
+    current_user != nil
   end
 
   private
