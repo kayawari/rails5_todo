@@ -1,7 +1,9 @@
 class User < ApplicationRecord
   before_save { self.email = email.downcase }
-  validates :name, presence: true
 
+  has_many :todos, dependent: :destroy
+
+  validates :name, presence: true
   # TODO: 正直、ここの正規表現がわかっていない...
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, presence: true,
