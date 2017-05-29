@@ -1,5 +1,5 @@
 class Todo < ApplicationRecord
-  belongs_to :users
+  belongs_to :user
 
   validates :title, presence: true, length: { in: 3..100 }
   validates :memo,  length: { maximum: 255 }

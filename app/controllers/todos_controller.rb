@@ -10,11 +10,9 @@ class TodosController < ApplicationController
       redirect_to login_path, alert: 'ログインしてください'
     end
 
-    @todos = Todo.all
+    @todos = Todo.where(user_id: session[:user_id])
+    @user = session[:name]
 
-    # TODO: ログインしているユーザーの名前をヘッダーに出力
-    # 今はまだ最初に登録したユーザーのみ名前を出力
-    @user = User.first
     return @todos, @user
   end
 
@@ -39,6 +37,8 @@ class TodosController < ApplicationController
 
     # デフォルトでtodoはチェックが入っていない状態にする
     @todo.checked_flg = false
+    @todo.user_id = session[:user_id]
+    p @todo.user_id
 
     respond_to do |format|
       if @todo.save
@@ -94,6 +94,6 @@ class TodosController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def todo_params
-    params.require(:todo).permit(:checked_flg, :title, :duedate)
+    params.require(:todo).permit(:checked_flg, :title, :memo, :duedate)
   end
 end
