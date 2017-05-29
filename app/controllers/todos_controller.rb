@@ -9,9 +9,8 @@ class TodosController < ApplicationController
     end
 
     @todos = Todo.where(user_id: session[:user_id])
-    @user = session[:name]
 
-    return @todos, @user
+    return @todos
   end
 
   def show
