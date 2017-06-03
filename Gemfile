@@ -15,6 +15,7 @@ gem 'turbolinks', '~> 5'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.5'
+  gem 'capybara'
   gem 'sqlite3'
   gem 'byebug', platform: :mri
   gem 'factory_girl_rails'
@@ -31,6 +32,7 @@ group :development do
   gem 'web-console'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'brakeman', :require => false
 end
 
 group :production do
