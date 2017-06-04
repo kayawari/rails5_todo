@@ -17,6 +17,9 @@ LineLength:
 MethodLength:
   CountComments: false
   Max: 30
+Metrics/AbcSize:
+  Enabled: true
+  Max: 25
 
 Style/FrozenStringLiteralComment:
   Enabled: false

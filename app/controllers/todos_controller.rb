@@ -2,9 +2,7 @@ include ApplicationHelper
 
 class TodosController < ApplicationController
   def index
-    unless logged_in?
-      redirect_to login_path, alert: 'ログインしてください'
-    end
+    redirect_to login_path, alert: 'ログインしてください' unless logged_in?
 
     @todos = Todo.where(user_id: session[:user_id])
   end
@@ -21,8 +19,6 @@ class TodosController < ApplicationController
 
   def create
     @todo = Todo.new(todo_params)
-
-    # デフォルトでtodoはチェックが入っていない状態にする
     @todo.checked_flg = false
     @todo.user_id = session[:user_id]
 
@@ -68,7 +64,7 @@ class TodosController < ApplicationController
 
   private
 
-    def todo_params
-      params.require(:todo).permit(:title, :memo, :duedate)
-    end
+  def todo_params
+    params.require(:todo).permit(:title, :memo, :duedate)
+  end
 end
