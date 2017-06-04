@@ -17,6 +17,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.5'
   gem 'capybara'
   gem 'sqlite3'
+  gem 'rails_best_practices'
   gem 'byebug', platform: :mri
   gem 'factory_girl_rails'
   gem 'hirb'
