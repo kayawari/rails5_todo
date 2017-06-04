@@ -4,7 +4,7 @@
   <%= content_tag(:div, value, class: "#{key}") %>
 <% end %>
 
-<h1>ログイン画面</h1>
+<h4>ログイン画面</h4>
 <%= form_for(:session, url:login_path) do |f| %>
   <div class="field">
     <%= f.label :email %>
@@ -15,8 +15,8 @@
     <%= f.password_field :password %> 
   </div>
   <div class="actions">
-    <%= f.submit "Log in" %>
+    <%= f.submit "Log in", class: 'button success' %>
   </div>
-
-  <p>New user? <%= link_to "Sign up now!", new_user_path %></p>
+  <br>
+  <%= link_to "Sign up now!", new_user_path, class: 'button' %></p>
 <% end %>

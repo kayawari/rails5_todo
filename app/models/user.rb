@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   before_save { self.email = email.downcase }
 
-  has_many :todo, dependent: :destroy
+  has_many :todos, dependent: :destroy
 
   validates :name, presence: true
   # TODO: 正直、ここの正規表現がわかっていない...

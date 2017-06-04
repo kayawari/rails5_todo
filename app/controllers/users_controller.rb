@@ -1,3 +1,5 @@
+require "sessions_helper"
+
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   helper_method :current_user, :logged_in?

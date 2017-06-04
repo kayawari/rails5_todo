@@ -1,8 +1,6 @@
 include ApplicationHelper
 
 class TodosController < ApplicationController
-  before_action :set_todo, only: [:show, :edit, :update, :destroy]
-
   def index
     unless logged_in?
       redirect_to login_path, alert: 'ログインしてください'
@@ -27,11 +25,10 @@ class TodosController < ApplicationController
     # デフォルトでtodoはチェックが入っていない状態にする
     @todo.checked_flg = false
     @todo.user_id = session[:user_id]
-    p @todo.user_id
 
     respond_to do |format|
       if @todo.save
-        format.html { redirect_to @todo, notice: 'Todo was successfully created.' }
+        format.html { redirect_to todos_url, notice: 'Todo was successfully created.' }
         format.json { render :show, status: :created, location: @todo }
       else
         format.html { render :new }
@@ -71,11 +68,7 @@ class TodosController < ApplicationController
 
   private
 
-  def set_todo
-    @todo = Todo.find(params[:id])
-  end
-
-  def todo_params
-    params.require(:todo).permit(:checked_flg, :title, :memo, :duedate)
-  end
+    def todo_params
+      params.require(:todo).permit(:title, :memo, :duedate)
+    end
 end
