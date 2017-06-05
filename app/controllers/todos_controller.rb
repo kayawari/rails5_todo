@@ -2,12 +2,13 @@ include ApplicationHelper
 
 class TodosController < ApplicationController
   def index
-    redirect_to login_path, alert: 'ログインしてください' unless logged_in?
+    redirect_to login_url, alert: 'ログインしてください' unless logged_in?
 
     @todos = Todo.where(user_id: session[:user_id])
   end
 
   def show
+    @todo = Todo.find(params[:id])
   end
 
   def new
@@ -15,6 +16,7 @@ class TodosController < ApplicationController
   end
 
   def edit
+    @todo = Todo.find(params[:id])
   end
 
   def create
